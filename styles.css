@@ -36,7 +36,8 @@ body::before {
     background-image: radial-gradient(var(--color-accent-gold) 1px, transparent 1px);
     background-size: 40px 40px;
     opacity: 0.1;
-    const rsvpForm = document.getElementById('rsvp-form');
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* Decorative borders */
@@ -441,9 +442,14 @@ footer h4 {
     .bride, .groom { font-size: 3.5rem; }
     .hero-content { padding: 40px 20px; }
     .section-title { font-size: 2rem; }
-    .border-decoration { width: 100px; height: 100px; }
     .rsvp-container { padding: 30px 20px; }
     .couple-grid { flex-direction: column; align-items: center; gap: 20px; }
+    .couple-photo-frame {
+        width: 240px;
+        height: 240px;
+        border-style: solid;
+        border-width: 1px;
+    }
 }
 
 /* Couple Section Styling */
@@ -465,16 +471,16 @@ footer h4 {
 
 .couple-photo-frame {
     position: relative;
-    width: 390px;
-    height: 390px;
+    width: 300px;
+    height: 300px;
     margin: 0 auto 20px auto;
     border-radius: 50%;
-    border: 2px dashed var(--color-accent-gold);
-    padding: 10px;
+    border: 1px solid var(--color-accent-gold); /* Solid thin gold border */
+    padding: 5px; /* Minimal padding for a tight, elegant look */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 20px rgba(197, 160, 89, 0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .couple-photo-wrapper {
@@ -483,8 +489,9 @@ footer h4 {
     border-radius: 50%;
     overflow: hidden;
     margin: 0;
-    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-    mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+    padding: 0; /* Removed large padding to fix the 'odd' gap */
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
 }
 
 .couple-photo {
